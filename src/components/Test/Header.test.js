@@ -7,5 +7,6 @@ describe ('Header component',() => {
         const wrapper = shallow (<Header/>);
         const text = wrapper.find('h1');
         expect (text).toHaveLength(1);
+        // && ? to find ""
     })
 })

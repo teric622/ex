@@ -11,12 +11,12 @@ export default class Counter extends Component {
     }
 
 decrement = (x) => {
-        return x -=1;
+        return x - 1;
     }
 
-    findResult = (x) =>{
-        if (x <= -3){
-            return "Limit Reached";
+    decrementResult = (x) =>{
+        if (x <= 0){
+            return "slow down Reached";
         }
     }
 
@@ -47,11 +47,11 @@ handleClick = () => {
 }
 
 DecreClick = () => {
-    const currentCount = this.increment(this.state.count);
-    const currentResult = this.findResult(currentCount);
-    if (currentCount > -3) {
+    const currentCount = this.decrement(this.state.count);
+    const currentResult = this.decrementResult(currentCount);
+    if (currentCount > 0) {
         this.setState ({
-            count: -3,
+            count: 0,
             result:""
         })
     } else 
@@ -76,7 +76,7 @@ DecreClick = () => {
                <button className="increment" onClick=
 {this.handleClick}>Increase</button>
  <button className="decrement" onClick=
-{this.handleClick}>Decrease</button>
+{this.DecreClick}>Decrease</button>
                 </div>
             
         )
