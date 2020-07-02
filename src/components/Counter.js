@@ -11,7 +11,7 @@ export default class Counter extends Component {
     }
 
 decrement = (x) => {
-        return x - 1;
+        return x -= 1;
     }
 
     decrementResult = (x) =>{
@@ -49,15 +49,16 @@ handleClick = () => {
 DecreClick = () => {
     const currentCount = this.decrement(this.state.count);
     const currentResult = this.decrementResult(currentCount);
-    if (currentCount > 0) {
+    if (currentCount < 0) { 
+        // currentCount < 0 is stating that when it is < 0 or at 0, it is setting the limit for the message.
         this.setState ({
-            count: 0,
-            result:""
+            count: 0,// count is setting the stoping point for when user decreases all the way to 0.
+            result:currentResult // decrement only want meesage to pop up below
         })
     } else 
     this.setState({
         count: currentCount,
-        result: currentResult
+        result: ""
     })
 }
 
@@ -71,8 +72,7 @@ DecreClick = () => {
         return(
             <div className = "Counter" >
                 <h2 className ="current-count">{currCount}</h2>
-                <h3 className = "result"> {result}
-                </h3>
+                <h3 className = "result">{result}</h3>
                <button className="increment" onClick=
 {this.handleClick}>Increase</button>
  <button className="decrement" onClick=
