@@ -23,7 +23,14 @@ import Footer from '../Footer'
 describe ('Footer component',() => {
     it (' finds 1 h3 in Footer', () => {
         const wrapper = shallow (<Footer/>);
-        const text = wrapper.find('h3');
-        expect (text).toHaveLength(1);
+        const footer = wrapper.find('h3');
+        expect (footer).toHaveLength(1);
+    })
+})
+describe ('Check if footer message is visible',() => {
+    it (' finds message footer', () => {
+        const wrapper = shallow (<Footer/>);
+        const text = wrapper.find('h3').text();
+        expect (text).toEqual("Did you reach your limit");
     })
 })

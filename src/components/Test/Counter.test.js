@@ -14,14 +14,41 @@ describe ('Counter component', ()=> {
           incrementBtn.simulate('click');
         const text = wrapper.find('h2').text();
         expect (text). toEqual ('3');
+    });
+    });
+
+
+describe ('Counter component', ()=> {
+    it('message appears when mas 3 reached', () => {
+
+        const wrapper = shallow(<Counter/>);
+        const incrementBtn = wrapper.find('button.increment');
+        incrementBtn.simulate('click');
+         incrementBtn.simulate('click');
+          incrementBtn.simulate('click');
+        const text = wrapper.find('h2').text();
+        expect (text). toEqual ('3');
         const result = wrapper.find('h3').text();
         expect (result). toBe ('Limit Reached');
        
     });
     });
 
+    
+
     describe ('Counter component', ()=> {
     it('decrements count by 1 when the decrement button is clicked', () => {
+
+        const wrapper = shallow(<Counter/>);
+        const decrementBtn = wrapper.find('button.decrement');
+        decrementBtn.simulate('click');
+        const text = wrapper.find('h2').text();
+        expect (text). toEqual ('0');
+    });
+    });
+
+    describe ('Counter component', ()=> {
+    it('shows message when max 0 reached', () => {
 
         const wrapper = shallow(<Counter/>);
         const decrementBtn = wrapper.find('button.decrement');
